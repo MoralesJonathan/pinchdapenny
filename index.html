@@ -35,7 +35,7 @@
         </button>
         </div>
         <div class="modal-body">
-          <p>You did it. Thank you for your support. Us devs really appreciate every penny. Are you a big money baller? Dare to give more? Let's find out if you're <a>a big dollar baller </a>or not.</a></p>
+          <p>You did it! Thank you for your support. Us devs really appreciate every penny. Are you a big money baller? Dare to give more? Let's find out if you're <a>a big dollar baller </a>or not.</a></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -130,10 +130,10 @@
       $(this)[init ? 'on' : '']('mousemove', follow);
       $(document)
         .mouseup(function() {
-          $('#imgFollow').attr('src', 'img/penchdapennyhandopen.png');
+          $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandopen.png');
         })
         .mousedown(function() {
-          $('#imgFollow').attr('src', 'img/penchdapennyhandclosed.png');
+          $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandclosed.png');
         });
 
       function follow(e) {
@@ -250,6 +250,7 @@
       image: 'img/penny.png',
       locale: 'auto',
       token: function(token) {
+        $('#imgFollow').attr('src', 'img/penchdapennythumbsup.png').removeClass('nodonate')
         $("#penny").css({ 'top': $("#penny").position().top-- })
         myMove()
         new Audio("audio/pop.mp3").play()
