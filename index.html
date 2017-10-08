@@ -59,12 +59,12 @@
         Pinch The Penny <i class="fa fa-arrow-down" aria-hidden="true"></i></h1>
       &nbsp; &nbsp; &nbsp;
       <h1>
-        <img id="penny" src="./img/pinchthepennylogo.png" height="200px" width="200px">
+        <img id="penny" src="./img/penny.png" height="200px" width="200px">
       </h1>
       <br>
     </div>
   </header>
-  <img id="imgFollow" height="0px" style="transform: rotate(25deg); pointer-events:none;" src="img/penchdapennyhandopen.png" />
+  <img id="imgFollow" class="nodonate" height="0px" style="transform: rotate(25deg); pointer-events:none;" src="img/penchdapennyhandopen.png" />
 
   <footer style="background:#2c3e50">
     <div class="container">
@@ -255,7 +255,7 @@
 
     var handler = StripeCheckout.configure({
       key: 'pk_test_lA29g4AGiTHMK0Q4qwbK0y57',
-      image: 'img/pinchthepennylogo.png',
+      image: 'img/penny.png',
       locale: 'auto',
       token: function(token) {
         $('#imgFollow').attr('src', 'img/penchdapennythumbsup.png').removeClass('nodonate')
@@ -291,7 +291,7 @@
     });
 
     function wascanceled(data) {
-      $('#penny').attr('src', 'img/pinchthepennylogo.png')
+      $('#penny').attr('src', 'img/penny.png')
     }
 
     function myMove() {
