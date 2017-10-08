@@ -112,11 +112,12 @@
   <script src="js/pinch.js"></script>
 
   <script>
+  var bannerText;
     $(document).ready(function() {
       $('#myModal').modal()
       $('#imgFollow').attr('height', '350px')
       document.addEventListener('contextmenu', event => event.preventDefault());
-      var bannerText = setInterval(function() {
+      bannerText = setInterval(function() {
         if (textsindex != 4) {
           $('#banna').html(texts[textsindex] + " <i class='fa fa-arrow-down' aria-hidden='true'>")
           textsindex++
@@ -242,15 +243,14 @@
 
       update();
     });
-  </script>
 
-  <script>
     var handler = StripeCheckout.configure({
       key: 'pk_test_lA29g4AGiTHMK0Q4qwbK0y57',
       image: 'img/penny.png',
       locale: 'auto',
       token: function(token) {
         $('#imgFollow').attr('src', 'img/penchdapennythumbsup.png').removeClass('nodonate')
+        clearInterval(bannerText)
         $("#penny").css({ 'top': $("#penny").position().top-- })
         myMove()
         new Audio("audio/pop.mp3").play()
@@ -260,6 +260,8 @@
         SetGlobals();
         new Audio("audio/clap.mp3").play()
         setTimeout(function() { DeactivateConfetti() }, 6000);
+        $('#banna').html('Thanks for pinching our pennies!')
+        
       }
     });
     $('#penny').click(function() {
