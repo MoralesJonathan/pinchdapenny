@@ -4,6 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="Pinch The Penny" />
+  <meta name="msapplication-TileColor" content="#85510D" />
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -35,7 +43,8 @@
         </button>
         </div>
         <div class="modal-body">
-          <p>You did it! Thank you for your support. Us devs really appreciate every penny. Dare to give more? <a href="/">Are you a big money baller?</a> The world may never know...</a></p>
+          <p>You did it! Thank you for your support. Us devs really appreciate every penny. Dare to give more? <a href="/">Are you a big money baller?</a> The world may never know...</a>
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -112,7 +121,7 @@
   <script src="js/pinch.js"></script>
 
   <script>
-  var bannerText;
+    var bannerText;
     $(document).ready(function() {
       $('#myModal').modal()
       $('#imgFollow').attr('height', '350px')
@@ -261,7 +270,7 @@
         new Audio("audio/clap.mp3").play()
         setTimeout(function() { DeactivateConfetti() }, 6000);
         $('#banna').html('Thanks for pinching our pennies!')
-        
+
       }
     });
     $('#penny').click(function() {
