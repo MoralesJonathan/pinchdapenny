@@ -280,7 +280,6 @@
 
     function wascanceled(data) {
       $('#penny').attr('src', 'img/penny.png')
-
     }
 
     function myMove() {
@@ -295,7 +294,6 @@
       function frame() {
         if (daCoin.top <= -225) {
           clearInterval(id);
-          console.log("DONE?")
           id2 = setInterval(frame2, 3);
         }
         else {
@@ -305,15 +303,12 @@
       }
 
       function frame2() {
-        console.log(addLeft)
         if (addLeft >= 155) {
           clearInterval(id2);
-          console.log("DONE?2?")
           $("#penny").css({ 'transform': 'rotateY(78deg)' })
           id3 = setInterval(frame3, 4);
         }
         else {
-          console.log("TO DA ELFT?")
           addLeft++
           $("#penny").css({ 'left': addLeft })
         }
@@ -322,21 +317,17 @@
       function frame3() {
         if (daCoin.top >= 100) {
           clearInterval(id3);
-          console.log("DONE?3?")
           $("#penny").attr('src', 'img/pennyAfter.png')
           $('#piggy').attr('src', 'img/piggywink.png')
           $('#bigMoneyModal').modal('show')
         }
         else {
-          console.log("TO DA DOWN?")
           daCoin.top++
             $("#penny").css({ 'top': daCoin.top })
         }
       }
     }
 
-    // confetti 
-    // globals
     var canvas;
     var ctx;
     var W;
@@ -350,8 +341,6 @@
     var deactivationTimerHandler;
     var reactivationTimerHandler;
     var animationHandler;
-
-    // objects
 
     var particleColors = {
       colorOptions: ["DodgerBlue", "OliveDrab", "Gold", "pink", "SlateBlue", "lightblue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"],
