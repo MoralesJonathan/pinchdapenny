@@ -64,7 +64,7 @@
       <br>
     </div>
   </header>
-  <img id="imgFollow" class="nodonate" height="0px" style="transform: rotate(25deg); pointer-events:none;" src="img/penchdapennyhandopen.png" />
+  <img id="imgFollow" class="nodonate" height="0px" style="transform: rotate(25deg); pointer-events:none;" />
 
   <footer style="background:#2c3e50">
     <div class="container">
@@ -136,8 +136,11 @@
           $('#banna').html(texts[textsindex] + " <i class='fa fa-arrow-down' aria-hidden='true'>")
         }
       }, 10000);
-      var init = true;
-      $(this)[init ? 'on' : '']('mousemove', follow);
+      $('#top').on('mousemove', follow).on('mouseleave', function(){
+        $('#imgFollow.nodonate').removeAttr('src')
+      }).on('mouseenter', function(){
+        $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandopen.png');
+      })
       $(document)
         .mouseup(function() {
           $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandopen.png');
@@ -149,13 +152,13 @@
       function follow(e) {
         var xPos = e.pageX;
         var yPos = e.pageY;
-        $("#foxlocation").html("The fox is at: " + xPos + ", " + yPos);
         $("#imgFollow").offset({
           left: e.pageX - 125,
           top: e.pageY - 115
         });
       }
     });
+
     var texts = ["Pinch The Penny", "Don't be shy", "Give it a nice sqeeze", "We surely could appreciate that pinch", "Just click on the damn penny"]
     var textsindex = 0
 
@@ -329,7 +332,7 @@
       function frame3() {
         if (daCoin.top >= 100) {
           clearInterval(id3);
-          $("#penny").attr('src', 'img/pennyAfter.png')
+          $("#penny").removeAttr('src')
           $('#piggy').attr('src', 'img/piggywink.png')
           $('#bigMoneyModal').modal('show')
         }
