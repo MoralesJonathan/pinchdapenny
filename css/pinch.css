@@ -14,6 +14,9 @@ body {
     overflow-x: hidden;
 }
 
+a:hover {
+ cursor:none;
+}
 
 .text-vertical-center {
     display: table-cell;
