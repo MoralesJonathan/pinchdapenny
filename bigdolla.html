@@ -18,21 +18,16 @@
   <title>Pinch The Penny HYPE</title>
 
   <link href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
   <link href="css/pinch2.css" rel="stylesheet">
-
-
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
   <canvas id="canvas" style="position:fixed;z-index:100;pointer-events:none;"></canvas>
-  <!-- modal -->
   <div class="modal fade" id="bigMoneyModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -43,7 +38,8 @@
         </button>
         </div>
         <div class="modal-body">
-          <p>You did itagain! Thank you for your support. Us devs really appreciate every doller. Unfortunetly, that's all the money we'll let you donate. We feel bad if we ask for any more. But if you<i> really </i>want to, find the easter egg for the ability to donate an undisclosed amount (;</a>
+          <p>You did itagain! Thank you for your support. Us devs really appreciate every doller. Unfortunetly, that's all the money we'll let you donate. We feel bad if we ask for any more. But if you<i> really </i>want to, find the easter egg for the ability
+            to donate an undisclosed amount (;</a>
           </p>
         </div>
         <div class="modal-footer">
@@ -59,12 +55,12 @@
         Pinch The Dollar <i class="fa fa-arrow-down" aria-hidden="true"></i></h1>
       &nbsp; &nbsp; &nbsp;
       <h1>
-        <img id="penny" src="./img/dolla.jpg" height="200px" >
+        <img id="penny" src="./img/dolla.jpg" height="200px">
       </h1>
       <br>
     </div>
   </header>
-  <img id="imgFollow" height="0px" style="transform: rotate(25deg); pointer-events:none;" src="img/penchdapennyhandopen.png" />
+  <img id="imgFollow" height="0px" style="transform: rotate(25deg); pointer-events:none;" />
 
   <footer style="background:#2c3e50">
     <div class="container">
@@ -136,8 +132,11 @@
           $('#banna').html(texts[textsindex] + " <i class='fa fa-arrow-down' aria-hidden='true'>")
         }
       }, 10000);
-      var init = true;
-      $(this)[init ? 'on' : '']('mousemove', follow);
+      $('#top').on('mousemove', follow).on('mouseleave', function() {
+        $('#imgFollow.nodonate').removeAttr('src')
+      }).on('mouseenter', function() {
+        $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandopen.png');
+      })
       $(document)
         .mouseup(function() {
           $('#imgFollow.nodonate').attr('src', 'img/penchdapennyhandopen.png');
@@ -149,7 +148,6 @@
       function follow(e) {
         var xPos = e.pageX;
         var yPos = e.pageY;
-        $("#foxlocation").html("The fox is at: " + xPos + ", " + yPos);
         $("#imgFollow").offset({
           left: e.pageX - 125,
           top: e.pageY - 115
@@ -273,6 +271,7 @@
 
       }
     });
+    
     $('#penny').click(function() {
       $('#penny').attr('src', 'img/dollaPinch.png')
       handler.open({
@@ -285,7 +284,6 @@
       });
     })
 
-    // Close Checkout on page navigation:
     window.addEventListener('popstate', function() {
       handler.close();
     });
@@ -329,7 +327,7 @@
       function frame3() {
         if (daCoin.top >= 100) {
           clearInterval(id3);
-          $("#penny").attr('src', 'img/pennyAfter.png')
+          $("#penny").removeAttr('src')
           $('#piggy').attr('src', 'img/piggywink.png')
           $('#bigMoneyModal').modal('show')
         }
@@ -465,11 +463,9 @@
         }
         else {
           if (Math.sin(angle) > 0) {
-            //Enter from the left
             repositionParticle(particle, -20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
           }
           else {
-            //Enter from the right
             repositionParticle(particle, W + 20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
           }
         }
@@ -539,7 +535,6 @@
         };
     })();
   </script>
-
 
 </body>
 

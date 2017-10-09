@@ -14,10 +14,9 @@ body {
     overflow-x: hidden;
 }
 
-a:hover {
- cursor:none;
+footer, .modal-content{
+    cursor: auto;
 }
-
 
 .text-vertical-center {
     display: table-cell;
